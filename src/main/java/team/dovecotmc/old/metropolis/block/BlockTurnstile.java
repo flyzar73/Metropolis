@@ -1,5 +1,6 @@
 package team.dovecotmc.old.metropolis.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -347,29 +348,12 @@ public class BlockTurnstile extends HorizontalDirectionalBlock implements Entity
     }
 
     @Override
-    public ItemStack getCloneItemStack(BlockGetter world, BlockPos pos, BlockState state) {
-        BlockEntityTurnstile.EnumTurnstileType type = BlockEntityTurnstile.EnumTurnstileType.get(state.getValue(TYPE));
-        switch (type) {
-            case ENTER -> {
-                if (this.icOnly) {
-                    return new ItemStack(OldMetroItems.ITEM_TURNSTILE_IC_ONLY_ENTER);
-                } else {
-                    return new ItemStack(OldMetroItems.ITEM_TURNSTILE_ENTER);
-                }
-            }
-            case EXIT -> {
-                if (this.icOnly) {
-                    return new ItemStack(OldMetroItems.ITEM_TURNSTILE_IC_ONLY_EXIT);
-                } else {
-                    return new ItemStack(OldMetroItems.ITEM_TURNSTILE_EXIT);
-                }
-            }
-        }
-        return new ItemStack(OldMetroItems.ITEM_TURNSTILE_ENTER);
+    public boolean shouldRenderName() {
+        return false;
     }
 
     @Override
-    public boolean shouldRenderName() {
-        return false;
+    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
+        return null;
     }
 }

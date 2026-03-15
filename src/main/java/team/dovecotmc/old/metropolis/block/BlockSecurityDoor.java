@@ -1,5 +1,6 @@
 package team.dovecotmc.old.metropolis.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
@@ -196,5 +197,10 @@ public class BlockSecurityDoor extends HorizontalDirectionalBlock {
         HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
         OPEN = BooleanProperty.create("open");
 //        AXIS = EnumProperty.of("axis", Direction.Axis.class);
+    }
+
+    @Override
+    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
+        return null;
     }
 }

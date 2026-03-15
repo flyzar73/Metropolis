@@ -1,5 +1,6 @@
 package team.dovecotmc.metropolis.block;
 
+import com.mojang.serialization.MapCodec;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
@@ -104,6 +105,12 @@ public class BlockCameraCeiling extends BaseEntityBlock {
     public boolean propagatesSkylightDown(BlockState state, BlockGetter world, BlockPos pos) {
         return true;
     }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return null;
+    }
+
     public RenderShape getRenderShape(BlockState state) {
         return RenderShape.INVISIBLE;
     }

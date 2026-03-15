@@ -1,5 +1,6 @@
 package team.dovecotmc.metropolis.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -21,6 +22,11 @@ import team.dovecotmc.metropolis.util.MetroBlockUtil;
 public class BlockTunnelLight extends HorizontalDirectionalBlock {
     public BlockTunnelLight(Properties settings) {
         super(settings.lightLevel(value -> 12));
+    }
+
+    @Override
+    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
+        return null;
     }
 
     @Override

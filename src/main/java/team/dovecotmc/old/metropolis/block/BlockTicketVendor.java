@@ -1,5 +1,6 @@
 package team.dovecotmc.old.metropolis.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -148,5 +149,10 @@ public class BlockTicketVendor extends HorizontalDirectionalBlock implements Ent
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return this.isFunctional ? new BlockEntityTicketVendor(pos, state) : null;
+    }
+
+    @Override
+    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
+        return null;
     }
 }

@@ -1,5 +1,6 @@
 package team.dovecotmc.old.metropolis.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -256,6 +257,11 @@ public class BlockSecurityInspectionMachine extends HorizontalDirectionalBlock i
         if (state.getValue(PART).equals(EnumBlockSecurityInspectionMachinePart.CENTER)) {
             return new BlockEntitySecurityInspectionMachine(pos, state);
         }
+        return null;
+    }
+
+    @Override
+    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
         return null;
     }
 

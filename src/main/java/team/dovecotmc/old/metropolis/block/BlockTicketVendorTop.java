@@ -1,5 +1,6 @@
 package team.dovecotmc.old.metropolis.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -89,5 +90,10 @@ public class BlockTicketVendorTop extends HorizontalDirectionalBlock {
         if (world.getBlockState(pos.below()).getBlock() instanceof BlockTicketVendor) {
             world.destroyBlock(pos.below(), true);
         }
+    }
+
+    @Override
+    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
+        return null;
     }
 }

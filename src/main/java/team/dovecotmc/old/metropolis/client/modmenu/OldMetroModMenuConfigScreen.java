@@ -46,7 +46,7 @@ public class OldMetroModMenuConfigScreen extends Screen {
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
-        this.renderBackground(graphics);
+        this.renderBackground(graphics, 0, 0, 0);
 
         super.render(graphics, mouseX, mouseY, delta);
 

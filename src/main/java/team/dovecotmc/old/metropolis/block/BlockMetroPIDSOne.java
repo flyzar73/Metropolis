@@ -1,5 +1,6 @@
 package team.dovecotmc.old.metropolis.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.material.MapColor;
 
@@ -13,5 +14,10 @@ public class BlockMetroPIDSOne extends HorizontalDirectionalBlock {
         super(Properties.of()
                 .mapColor(MapColor.METAL)
                 .noOcclusion());
+    }
+
+    @Override
+    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
+        return null;
     }
 }
